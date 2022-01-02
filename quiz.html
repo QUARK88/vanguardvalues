@@ -1,112 +1,14 @@
+<!DOCTYPE HTML>
+<html>
 <head>
-<link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,700|Roboto:400,700" rel="stylesheet">
-<link href='style.css' rel='stylesheet' type='text/css'>
-<title>VanguardValues Quiz</title>
-<link rel="icon" type="x-icon" href="vanguardicon.png">
-<link rel="shortcut icon" type="x-icon" href="vanguardicon.png">
-<meta charset="utf-8">
-<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-<script>
-  (adsbygoogle = window.adsbygoogle || []).push({
-    google_ad_client: "ca-pub-6511426299019766",
-    enable_page_level_ads: true
-  });
-</script>
+<meta content="DozenValues" property="og:title">
+<meta content="DozenValues is a political test that aims to map differing political perspectives onto six axes." property="og:description">
+<meta content="https://quark88.github.io/dozenvalues/" property="og:site_name">
+<meta content="https://github.com/QUARK88/dozenvalues/blob/master/icons/icon.png?raw=true" property="og:image">
 </head>
 <body>
-<script type="application/javascript"
-        src="questions.js">
-</script>
-<img src="vanguardvalues.png" class="center"></img>
-<hr>
-<h2 style="text-align:center;" id="question-number">It should appear</h2>
-<p class="question" id="question-text"></p>
-<button class="button" onclick="next_question( 1.0)" style="background-color: #00c000;">Strongly Agree</button> <br>
-<button class="button" onclick="next_question( 0.5)" style="background-color: #00e000;">Agree</button> <br>
-<button class="button" onclick="next_question( 0.0)" style="background-color: #757575;">Neutral</button> <br>
-<button class="button" onclick="next_question(-0.5)" style="background-color: #e00000;">Disagree</button> <br>
-<button class="button" onclick="next_question(-1.0)" style="background-color: #c00000;">Strongly Disagree</button> <br>
-<button class="small_button" onclick="prev_question()" id="back_button">Back</button>
-<button class="small_button_off" id="back_button_off">Back</button><br>
-
 <script>
-    var max_b1, max_b2, max_b3, max_b4, max_b5, max_b6, max_b7, max_b8; // Max possible scores
-    max_b1 = max_b2 = max_b3 = max_b4 = max_b5 = max_b6 = max_b7 = max_b8 = 0;
-    var b1, b2, b3, b4, b5, b6, b7, b8; // User's scores
-    b1 = b2 = b3 = b4 = b5 = b6 = b7 = b8 = 0;
-    var qn = 0; // Question number
-    var prev_answer = null;
-    init_question();
-    for (var i = 0; i < questions.length; i++) {
-        max_b1 += Math.abs(questions[i].effect.b1)
-        max_b2 += Math.abs(questions[i].effect.b2)
-        max_b3 += Math.abs(questions[i].effect.b3)
-        max_b4 += Math.abs(questions[i].effect.b4)
-        max_b5 += Math.abs(questions[i].effect.b5)
-        max_b6 += Math.abs(questions[i].effect.b6)
-        max_b7 += Math.abs(questions[i].effect.b7)
-        max_b8 += Math.abs(questions[i].effect.b8)
-    }
-    function init_question() {
-        document.getElementById("question-text").innerHTML = questions[qn].question;
-        document.getElementById("question-number").innerHTML = "Question " + (qn + 1) + " of " + (questions.length);
-        if (prev_answer == null) {
-            document.getElementById("back_button").style.display = 'none';
-            document.getElementById("back_button_off").style.display = 'block';
-        } else {
-            document.getElementById("back_button").style.display = 'block';
-            document.getElementById("back_button_off").style.display = 'none';
-        }
-
-    }
-
-    function next_question(mult) {
-        b1 += mult*questions[qn].effect.b1
-        b2 += mult*questions[qn].effect.b2
-        b3 += mult*questions[qn].effect.b3
-        b4 += mult*questions[qn].effect.b4
-        b5 += mult*questions[qn].effect.b5
-        b6 += mult*questions[qn].effect.b6
-        b7 += mult*questions[qn].effect.b7
-        b8 += mult*questions[qn].effect.b8
-        qn++;
-        prev_answer = mult;
-        if (qn < questions.length) {
-            init_question();
-        } else {
-            results();
-        }
-    }
-    function prev_question() {
-        if (prev_answer == null) {
-            return;
-        }
-        qn--;
-        b1 -= prev_answer * questions[qn].effect.b1;
-        b2 -= prev_answer * questions[qn].effect.b2;
-        b3 -= prev_answer * questions[qn].effect.b3;
-        b4 -= prev_answer * questions[qn].effect.b4;
-        b5 -= prev_answer * questions[qn].effect.b5;
-        b6 -= prev_answer * questions[qn].effect.b6;
-        b7 -= prev_answer * questions[qn].effect.b7;
-        b8 -= prev_answer * questions[qn].effect.b8;
-        prev_answer = null;
-        init_question();
-
-    }
-    function calc_score(score,max) {
-        return (100*(max+score)/(2*max)).toFixed(1)
-    }
-    function results() {
-        location.href = `results.html`
-            + `?v1=${calc_score(b1,max_b1)}`
-            + `&v3=${calc_score(b2,max_b2)}`
-            + `&v5=${calc_score(b3,max_b3)}`
-            + `&v7=${calc_score(b4,max_b4)}`
-            + `&v9=${calc_score(b5,max_b5)}`
-            + `&v11=${calc_score(b6,max_b6)}`
-            + `&v13=${calc_score(b7,max_b7)}`
-            + `&v15=${calc_score(b8,max_b8)}`
-    }
+window.onload = location.href = "https://quark88.github.io/dozenvalues/"
 </script>
 </body>
+</html>
